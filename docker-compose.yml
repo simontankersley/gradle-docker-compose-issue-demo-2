@@ -1,0 +1,8 @@
+version: '3'
+services:
+  example:
+    image: alpine:latest
+    ports:
+      - '8080:8080' # we won't ever bind to it. We just want to demo that the checks fail before the 15 mins timeout
+    restart: always # this is the configuration that isn't supported
+    entrypoint: ["/bin/sh", "-c", "echo 'hello'; sleep 1"]
